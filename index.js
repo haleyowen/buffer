@@ -83,6 +83,9 @@ function createBuffer (that, length) {
     that.length = length
   }
 
+  // DIVERSION: Add .byteLength field to buffer
+  that.byteLength = length
+
   return that
 }
 
@@ -278,6 +281,10 @@ function fromArrayBuffer (that, array, byteOffset, length) {
     // Fallback: Return an object instance of the Buffer class
     that = fromArrayLike(that, array)
   }
+
+  // DIVERSION: Add .byteLength field to buffer
+  that.byteLength = length
+
   return that
 }
 
