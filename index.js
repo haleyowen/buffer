@@ -91,6 +91,8 @@ function createBuffer(length) {
   // Return an augmented `Uint8Array` instance
   const buf = new Uint8Array(length);
   Object.setPrototypeOf(buf, Buffer.prototype);
+  // DIVERSION: Add .byteLength field to buffer
+  buf.byteLength = length;
   return buf;
 }
 
@@ -314,6 +316,9 @@ function fromArrayBuffer(array, byteOffset, length) {
 
   // Return an augmented `Uint8Array` instance
   Object.setPrototypeOf(buf, Buffer.prototype);
+
+  // DIVERSION: Add .byteLength field to buffer
+  buf.byteLength = length;
 
   return buf;
 }
