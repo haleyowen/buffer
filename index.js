@@ -48,6 +48,10 @@ Buffer.TYPED_ARRAY_SUPPORT = global.TYPED_ARRAY_SUPPORT !== undefined
  * Export kMaxLength after typed array support is determined.
  */
 exports.kMaxLength = kMaxLength()
+// DIVERSION: Adding support for newer version of buffer with exported constants
+exports.constants = {
+  MAX_LENGTH: kMaxLength(),
+}
 
 function typedArraySupport () {
   try {
