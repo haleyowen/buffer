@@ -37,6 +37,14 @@ exports.kMaxLength = K_MAX_LENGTH;
  * for __proto__ and has a buggy typed array implementation.
  */
 Buffer.TYPED_ARRAY_SUPPORT = typedArraySupport();
+/*
+ * Export kMaxLength after typed array support is determined.
+ */
+exports.kMaxLength = kMaxLength();
+// DIVERSION: Adding support for newer version of buffer with exported constants
+exports.constants = {
+  MAX_LENGTH: kMaxLength(),
+};
 
 if (
   !Buffer.TYPED_ARRAY_SUPPORT &&
