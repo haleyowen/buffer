@@ -22,6 +22,11 @@ exports.INSPECT_MAX_BYTES = 50;
 const K_MAX_LENGTH = 0x7fffffff;
 exports.kMaxLength = K_MAX_LENGTH;
 
+// DIVERSION: Adding support for newer version of buffer with exported constants
+exports.constants = {
+  MAX_LENGTH: K_MAX_LENGTH,
+}
+
 /**
  * If `Buffer.TYPED_ARRAY_SUPPORT`:
  *   === true    Use Uint8Array implementation (fastest)
