@@ -824,6 +824,8 @@ function utf8Write (buf, string, offset, length) {
   return blitBuffer(utf8ToBytes(string, buf.length - offset), buf, offset, length)
 }
 
+Buffer.prototype.utf8Write = utf8Write;
+
 function asciiWrite (buf, string, offset, length) {
   return blitBuffer(asciiToBytes(string), buf, offset, length)
 }
