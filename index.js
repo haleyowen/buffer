@@ -2210,8 +2210,11 @@ function utf8ToBytes(string, units) {
       if ((units -= 1) < 0) break;
       bytes.push(codePoint);
     } else if (codePoint < 0x800) {
-      if ((units -= 2) < 0) break;
-      bytes.push((codePoint >> 0x6) | 0xc0, (codePoint & 0x3f) | 0x80);
+      // DIVERSION: skipping empty characters
+      if (codePoint !== 0x9c) {
+        if ((units -= 2) < 0) break;
+        bytes.push((codePoint >> 0x6) | 0xc0, (codePoint & 0x3f) | 0x80);
+      }
     } else if (codePoint < 0x10000) {
       if ((units -= 3) < 0) break;
       bytes.push(
