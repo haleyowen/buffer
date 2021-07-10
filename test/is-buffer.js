@@ -1,7 +1,6 @@
-if (process.env.OBJECT_IMPL) global.TYPED_ARRAY_SUPPORT = false
-var B = require('../').Buffer
-var isBuffer = require('is-buffer')
-var test = require('tape')
+const B = require('../').Buffer
+const isBuffer = require('is-buffer')
+const test = require('tape')
 
 test('is-buffer tests', function (t) {
   t.ok(isBuffer(new B(4)), 'new Buffer(4)')
